@@ -59,12 +59,11 @@ def bot(discordd = bool,screen = bool,voice= bool,talk_local = bool,repeat = boo
     if talk_local == True:
         recognizer = FastWhisperRecognizer()
 
-    DISCORD_TOKEN = "MTM4NDMxNjA1NzUxODYwODQ5NQ.Gy7Yur.57GUElf3HrQuziBnwGVkSvIN1g1I8LysR2-OsA"
+    DISCORD_TOKEN = "xxxxxx"
 
     # === Model Paths ===
-    BASE_MODEL = r"C:\Users\atoca\Desktop\Naka-chan\local model\Naka-Brain\Reasoning\lm3\Base model"
-    LORA_DIR = r"C:\Users\atoca\Desktop\Naka-chan\local model\Naka-Brain\Reasoning\lm3\og"
-    #LORA_DIR = r"C:\Users\atoca\Desktop\Naka-chan\local model\Naka-Brain\Reasoning\lm3\evil"
+    BASE_MODEL = r"base model path"
+    LORA_DIR = r"lora path"
 
 
     #database config
@@ -439,3 +438,4 @@ if __name__ == "__main__":
     voice = False
     talk_local = False
     bot(discordd,screen,voice,talk_local,False)
+
