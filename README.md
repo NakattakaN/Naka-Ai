@@ -17,4 +17,4 @@ Na-vision = an python vision llm quantized to 4-bit which gets visual input and 
 
 
 
-dc_llama = main code that gets user input from either discord or voice depending on how user wants.
+dc_llama = main code that gets user input from either discord or voice depending on how user wants. Currently it quantizizes 3.2 3B llama to 4bit for it to work on my rtx3050 laptop
