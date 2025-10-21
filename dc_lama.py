@@ -210,11 +210,6 @@ def bot(discordd = bool,screen = bool,voice= bool,talk_local = bool,repeat = boo
     model.eval()
 
 
-    WORD_SUBS = {
-        r"\bdaddy\b": "dad",
-        r"\bDaddy Dearest\b" : "dad",
-        # add more as needed…
-    }
     # === Discord Client ===
     intents = discord.Intents.default()
     intents.message_content = True
@@ -438,4 +433,5 @@ if __name__ == "__main__":
     voice = False
     talk_local = False
     bot(discordd,screen,voice,talk_local,False)
+
 
