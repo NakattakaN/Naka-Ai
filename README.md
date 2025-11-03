@@ -2,7 +2,7 @@
 
 This project is a modular Python interface for running a local, quantized LLM as an "AI-friend" or VTuber persona named **Naka**. It is designed to be resource-efficient (running a 4-bit Llama 3.2 3B model on an RTX 3050) and features multiple input/output modalities, including Discord, local voice, and screen-reading capabilities.
 
-The core persona is "Naka," a sharp-tongued, sarcastic, and unhinged AI VTuber.
+The core persona is "Naka," unhinged AI.
 
 ## 🚀 Features
 
@@ -41,7 +41,7 @@ This project is split into several key parts:
 
 ### 1. Prerequisites
 
-* Python 3.9+
+* Python 3.10+
 * An **NVIDIA GPU** (e.g., RTX 3050 or better)
 * **CUDA** correctly installed and compatible with your PyTorch version.
 
