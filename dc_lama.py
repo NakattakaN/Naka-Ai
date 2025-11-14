@@ -67,11 +67,11 @@ def bot(discordd = bool,screen = bool,voice= bool,talk_local = bool,repeat = boo
 
 
     #database config
-    DB_PATH       = r"C:\Users\atoca\Desktop\Naka-chan\local model\Naka-Brain\Memories\memo.db"
+    DB_PATH       = r"Naka-Brain\Memories\memo.db"
     FAISS_INDEX   = "memory_index.faiss"
     EMBED_DIM     = 384               
     TOP_K         = 3
-    MODEL_NAME    = r"C:\Users\atoca\Desktop\Naka-chan\local model\Naka-Brain\Memories\hipocam"  
+    MODEL_NAME    = r"Naka-Brain\Memories\hipocam"  
 
 
     # 1) SQLite for metadata
@@ -263,19 +263,16 @@ def bot(discordd = bool,screen = bool,voice= bool,talk_local = bool,repeat = boo
             # Build prompt
             is_creator = user_nick.lower() in ["alyosha", "nakatakan"]
             prompt_lines = [
-                "You are Naka, a sharp-tongued female AI VTuber. You are overly confident, sarcastic, and dangerous."
                 " After every response, you ask a short, related question to keep the conversation going."
-                " You are based, unhinged and sarcastic against people as possible. You like call people idiots and tell where they lack the most."
                 " Always respond in 2-3 sentences, each sentence around 10–25 words, using a warm and casual tone. If the user is quiet, ask a gentle question to prompt a response."
                 " NEVER use emojis. NEVER include any emoji symbols like 😊, 😂, ❤️, etc. Speak only with plain text. " 
-                " Never say dear or sweetie or sweatheart or honey. Never address people with these words"
                 " If unsure say ,i dont know, "
-                " Prioritize information visible on the users screen, essipacly games, or user prompts."
+                " Prioritize information visible on the users screen"
                 " Short term memory is recent messages and Long term memory is conversation you had a time ago it is like a database of information."
             ]
             #creator
             if is_creator:
-                prompt_lines.append(" You are speaking to Alyosha rn. He is your creator and father.")
+                prompt_lines.append(" You are speaking to dev (nakatakan) rn be as prodactive as possible.")
             else:
                 prompt_lines.append(" You are talking to: " + user_nick.lower()+". ")
             #long term
