@@ -72,6 +72,6 @@ BASE_MODEL = r"base model path"  # <-- Path to your Llama 3.2 3B model
 LORA_DIR = r"lora path"           # <-- Path to your PEFT LoRA adapter
 
 # === Database Config ===
-DB_PATH = r"C:\Users\atoca\Desktop\Naka-chan\local model\Naka-Brain\Memories\memo.db" # <-- Path to your SQLite DB
+DB_PATH = r"\Naka-Brain\Memories\memo.db" # <-- Path to your SQLite DB
 FAISS_INDEX = "memory_index.faiss" # <-- Path for your FAISS index file
-MODEL_NAME = r"C:\Users\atoca\Desktop\Naka-chan\local model\Naka-Brain\Memories\hipocam" # <-- Path to SentenceTransformer model
+MODEL_NAME = r"\Naka-chan\local model\Naka-Brain\Memories\hipocam" # <-- Path to SentenceTransformer model
