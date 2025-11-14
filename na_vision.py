@@ -93,5 +93,5 @@ class SmolVLM2:
 
 if __name__ == "__main__":
     smolvlm = SmolVLM2()
-    caption = smolvlm.generate_caption(r"C:\Users\atoca\Downloads\why-fansuber-do-better-job-than-official-subtitles-v0-7ouvvg8b0e0b1.jpg")
+    caption = smolvlm.generate_caption(r"random jpg")
     print(caption)
