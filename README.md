@@ -1,77 +1,202 @@
-# Naka-chan: The Unhinged AI Interface
-
-This project is a modular Python interface for running a local, quantized LLM as an "AI-friend" or VTuber persona named **Naka**. It is designed to be resource-efficient (running a 4-bit Llama 3.2 3B model on an RTX 3050) and features multiple input/output modalities, including Discord, local voice, and screen-reading capabilities.
-
-The core persona is "Naka," unhinged AI.
-
-## 🚀 Features
-
-* **Efficient LLM:** Runs a 4-bit quantized Llama 3.2 3B model (or any compatible base model) using `transformers`, `bitsandbytes`, and `accelerate`.
-* **LoRA Support:** Easily loads PEFT LoRA adapters to customize the base model's persona.
-* **Dual Interface:**
-    * **Discord:** Runs as a Discord bot that responds to mentions.
-    * **Local Voice:** Runs as a local-only assistant with push-to-talk (PTT) voice input.
-* **Persistent Memory:**
-    * **Short-Term:** Standard conversation history per channel.
-    * **Long-Term:** A persistent vector memory using **FAISS** for similarity search and **SQLite** for metadata storage, allowing Naka to recall past conversations.
-* **Multimodal Input:**
-    * **Speech-to-Text (`na-stt`):** Uses `faster-whisper` for local, PTT voice recognition.
-    * **Vision (`na-vision`):** Can capture the user's screen, generate a text description (`SmolVLM2`), and feed it to the LLM as context.
-* **Voice Output (`na-tts`):** Uses the `kokoro` engine to generate spoken responses.
-
-## 🛠️ Architecture & Core Components
-
-This project is split into several key parts:
-
-* **`dc_llama.py` (Main Code):** The primary script that boots the model, connects to Discord, and manages all I/O loops.
-* **`na_stt.py` (`FastWhisperRecognizer`):** Handles push-to-talk voice input using `sounddevice` and `faster-whisper`.
-* **`na_tts.py` (`TTTS`):** Handles generating audio from the LLM's text responses.
-* **`na_vision.py` (`SmolVLM2`):** A 4-bit quantized vision model that captions screen captures taken with `mss` and `cv2`.
-
-### Key Dependencies
-
-* **LLM:** `torch`, `transformers`, `peft`, `bitsandbytes`, `accelerate`
-* **Vector Memory:** `faiss-cpu` (or `faiss-gpu`), `sentence-transformers`, `sqlite3`
-* **Interface:** `discord.py`
-* **I/O:** `faster-whisper`, `keyboard`, `sounddevice`, `mss`, `opencv-python`
-
+---
+base_model: unsloth/llama-3.2-3b-unsloth-bnb-4bit
+library_name: peft
 ---
 
-## ⚙️ Setup & Installation
+# Model Card for Model ID
 
-### 1. Prerequisites
+<!-- Provide a quick summary of what the model is/does. -->
 
-* Python 3.10+
-* An **NVIDIA GPU** (e.g., RTX 3050 or better)
-* **CUDA** correctly installed and compatible with your PyTorch version.
 
-### 2. Installation
 
-1.  Clone this repository:
-    ```bash
-    git clone [your-repo-url]
-    cd [your-repo-name]
-    ```
-2.  Install the required Python packages. (A `requirements.txt` file is recommended, but here are the essentials).
-    ```bash
-    pip install torch transformers peft bitsandbytes accelerate
-    pip install sentence-transformers faiss-cpu # or faiss-gpu
-    pip install discord.py faster-whisper keyboard sounddevice mss opencv-python-headless
-    ```
+## Model Details
 
-### 3. Configuration
+### Model Description
 
-Before running, you **must** update the hardcoded paths and tokens in `dc_llama.py`:
+<!-- Provide a longer summary of what this model is. -->
 
-```python
-# === Discord Token ===
-DISCORD_TOKEN = "xxxxxx"  # <-- PUT YOUR DISCORD BOT TOKEN HERE
 
-# === Model Paths ===
-BASE_MODEL = r"base model path"  # <-- Path to your Llama 3.2 3B model
-LORA_DIR = r"lora path"           # <-- Path to your PEFT LoRA adapter
 
-# === Database Config ===
-DB_PATH = r"\Naka-Brain\Memories\memo.db" # <-- Path to your SQLite DB
-FAISS_INDEX = "memory_index.faiss" # <-- Path for your FAISS index file
-MODEL_NAME = r"\Naka-chan\local model\Naka-Brain\Memories\hipocam" # <-- Path to SentenceTransformer model
+- **Developed by:** [More Information Needed]
+- **Funded by [optional]:** [More Information Needed]
+- **Shared by [optional]:** [More Information Needed]
+- **Model type:** [More Information Needed]
+- **Language(s) (NLP):** [More Information Needed]
+- **License:** [More Information Needed]
+- **Finetuned from model [optional]:** [More Information Needed]
+
+### Model Sources [optional]
+
+<!-- Provide the basic links for the model. -->
+
+- **Repository:** [More Information Needed]
+- **Paper [optional]:** [More Information Needed]
+- **Demo [optional]:** [More Information Needed]
+
+## Uses
+
+<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
+
+### Direct Use
+
+<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
+
+[More Information Needed]
+
+### Downstream Use [optional]
+
+<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
+
+[More Information Needed]
+
+### Out-of-Scope Use
+
+<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
+
+[More Information Needed]
+
+## Bias, Risks, and Limitations
+
+<!-- This section is meant to convey both technical and sociotechnical limitations. -->
+
+[More Information Needed]
+
+### Recommendations
+
+<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
+
+Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.
+
+## How to Get Started with the Model
+
+Use the code below to get started with the model.
+
+[More Information Needed]
+
+## Training Details
+
+### Training Data
+
+<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
+
+[More Information Needed]
+
+### Training Procedure
+
+<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
+
+#### Preprocessing [optional]
+
+[More Information Needed]
+
+
+#### Training Hyperparameters
+
+- **Training regime:** [More Information Needed] <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
+
+#### Speeds, Sizes, Times [optional]
+
+<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
+
+[More Information Needed]
+
+## Evaluation
+
+<!-- This section describes the evaluation protocols and provides the results. -->
+
+### Testing Data, Factors & Metrics
+
+#### Testing Data
+
+<!-- This should link to a Dataset Card if possible. -->
+
+[More Information Needed]
+
+#### Factors
+
+<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
+
+[More Information Needed]
+
+#### Metrics
+
+<!-- These are the evaluation metrics being used, ideally with a description of why. -->
+
+[More Information Needed]
+
+### Results
+
+[More Information Needed]
+
+#### Summary
+
+
+
+## Model Examination [optional]
+
+<!-- Relevant interpretability work for the model goes here -->
+
+[More Information Needed]
+
+## Environmental Impact
+
+<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->
+
+Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
+
+- **Hardware Type:** [More Information Needed]
+- **Hours used:** [More Information Needed]
+- **Cloud Provider:** [More Information Needed]
+- **Compute Region:** [More Information Needed]
+- **Carbon Emitted:** [More Information Needed]
+
+## Technical Specifications [optional]
+
+### Model Architecture and Objective
+
+[More Information Needed]
+
+### Compute Infrastructure
+
+[More Information Needed]
+
+#### Hardware
+
+[More Information Needed]
+
+#### Software
+
+[More Information Needed]
+
+## Citation [optional]
+
+<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
+
+**BibTeX:**
+
+[More Information Needed]
+
+**APA:**
+
+[More Information Needed]
+
+## Glossary [optional]
+
+<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
+
+[More Information Needed]
+
+## More Information [optional]
+
+[More Information Needed]
+
+## Model Card Authors [optional]
+
+[More Information Needed]
+
+## Model Card Contact
+
+[More Information Needed]
+### Framework versions
+
+- PEFT 0.15.2
