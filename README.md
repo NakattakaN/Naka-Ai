@@ -1,6 +1,6 @@
-# Naka-chan: The Unhinged AI Interface
+# Naka: The Unhinged AI Interface
 
-This project is a modular Python interface for running a local, quantized LLM as an "AI-friend" or VTuber persona named **Naka**. It is designed to be resource-efficient (running a 4-bit Llama 3.2 3B model on an RTX 3050) and features multiple input/output modalities, including Discord, local voice, and screen-reading capabilities.
+This project is a modular Python interface for running a local, quantized LLM as an "AI-friend"  persona named **Naka**. It is designed to be resource-efficient (running a 4-bit Llama 3.2 3B model on an RTX 3050) and features multiple input/output modalities, including Discord, local voice, and screen-reading capabilities.
 
 The core persona is "Naka," unhinged AI.
 
