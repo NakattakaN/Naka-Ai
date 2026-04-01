@@ -1,8 +1,8 @@
-# Naka: The Unhinged AI Interface
+# Naka: An AI Inference app
 
 This project is a modular Python interface for running a local, quantized LLM as an "AI-friend"  persona named **Naka**. It is designed to be resource-efficient (running a 4-bit Llama 3.2 3B model on an RTX 3050) and features multiple input/output modalities, including Discord, local voice, and screen-reading capabilities.
+It is bundled with the custom fine tuned ai persona called Naka-Ai
 
-The core persona is "Naka," unhinged AI.
 
 ## 🚀 Features
 
